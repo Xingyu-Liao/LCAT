@@ -1,15 +1,15 @@
 # LCAT
-long-read error correction algorithm for transcriptome sequencing data
+An isoform-sensitive error correction for transcriptome sequencing long reads
 ## 1.Introduction
 LCAT (An isoform-sensitive error correction for transcriptome sequencing long reads) is a wrapper algorithm of MECAT, to reduce the loss of isoform diversity while keeping MECAT's error correction performance. The experimental results show that LCAT not only can improve the quality of transcriptome sequencing long reads, but also keeps the diversity of isoforms.
 ## 2.Installation
 ### Install LCAT
 ```
-git clone https://github.com/luckylyw/LCAT.git
+git clone https://github.com/Xingyu-Liao/LCAT.git
 cd LCAT
 make
 cd ..
-export PATH=/home/luoluo/tool/LCAT/Linux-amd64/bin:$PATH
+export PATH=/home/tool/LCAT/Linux-amd64/bin:$PATH
 After installation, all the executables are found in LCAT/ Linux-amd64/bin.
 ```
 ### Install HDF5
@@ -18,13 +18,13 @@ wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.15-patch1/
 tar xzvf hdf5-1.8.15-patch1.tar.gz
 mkdir hdf5
 cd hdf5-1.8.15-patch1
-./configure --enable-cxx --prefix=/home/luoluo/tool/hdf5
+./configure --enable-cxx --prefix=/home/tool/hdf5
 make
 make install
 cd ..
-export HDF5_INCLUDE=/home/wjzhang/lyw/tool/hdf5/include
-export HDF5_LIB=/home/wjzhang/lyw/tool/hdf5/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/luoluo/tool/hdf5/lib
+export HDF5_INCLUDE=/home/tool/hdf5/include
+export HDF5_LIB=/home/tool/hdf5/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tool/hdf5/lib
 ```
 The header files of HDF5 are in hdf5/include. The library files of HDF5 are in hdf5/lib
 ### Install dextract
@@ -32,7 +32,7 @@ The header files of HDF5 are in hdf5/include. The library files of HDF5 are in h
 git clone https://github.com/PacificBiosciences/DEXTRACTOR.git
 cp LCAT/dextract_makefile DEXTRACTOR
 cd DEXTRACTOR
-export PATH=/home/luoluo/tool/DEXTRACTOR:$PATH
+export PATH=/home/tool/DEXTRACTOR:$PATH
 edit the dextractor_makefile (line 7) :
 ${CC} $(CFLAGS) -I$(HDF5_INCLUDE) -L$(HDF5_LIB) -o dextract dextract.c sam.c bax.c expr.c DB.c QV.c -lhdf5 -lz
 make -f dextract_makefile
@@ -138,6 +138,4 @@ B is the left-most effective position
 C is the right-most effective position
 D is the length of the corrected sequence
 by effective position we mean the position in the original sequence that is covered by at least c (the argument to the option -c) reads.
-## 5.Citation
-LCAT: long-read error correction algorithm for transcriptome sequencing data
 
