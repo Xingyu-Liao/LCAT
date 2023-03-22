@@ -42,20 +42,20 @@ cd ..
 LCAT can be used to correct RNA long reads produced by PacBio and Nanopore platforms. The options and commands for processing different types of data are introduced below.
 
 ### Correcting Pacbio Data
-* step 1: Detect overlapping candidates using lcat2pw
+* step 1：Detect overlapping candidates using lcat2pw
 ```
 lcat2pw x 0 -d SRR6238555.fastq -o SRR6238555.fastq.pm.can  -w wrk_dir -t 40 -n 100 -a 100 -k 4 -g 0
 ```
-* step 2, Correct the noisy RNA reads based on their pairwise overlapping candidates using lcat2cns
+* step 2：Correct the noisy RNA reads based on their pairwise overlapping candidates using lcat2cns
 ```
 lcat2cns -x 0 -t 40 -p 100000 -a 100 -l 100 -r 0.6  -c 4  -k 10 SRR6238555.fastq.pm.can SRR6238555.fastq corrected_reads.fastq
 ```
 ### Correcting Nanopore Data
-* step 1: Detect overlapping candidates using lcat2pw
+* step 1：Detect overlapping candidates using lcat2pw
 ```
 lcat2pw -x 1 -d ERR2401483_proccessed_normalid.fasta  -o candidatex.txt -w wrk_dir -t 40 -n 100 -a 100 -k 4 -g 0
 ```
-* step 2: Correct the noisy RNA reads based on their pairwise overlapping candidates using lcat2cns
+* step 2：Correct the noisy RNA reads based on their pairwise overlapping candidates using lcat2cns
 ```
 lcat2cns -x 0 -t 40 -p 100000 -a 100 -l 100 -r 0.6  -c 4  -k 10 candidatex.txt ERR2401483_proccessed_normalid.fasta corrected_reads.fastq
 ```
