@@ -1,7 +1,7 @@
 # LCAT
 long-read error correction algorithm for transcriptome sequencing data
 ## 1.Introduction
-LCAT is a wrapper algorithm of MECAT in order to reduce the loss of isoform diversity while keeping MECAT’s error correction performance. LCAT uses the sliding window strategy to filter low identity rate regions with a certain coverage in the alignment step. According to the different categories of the candidate-read areas, the consensus reads are obtained. 
+LCAT (An isoform-sensitive error correction for transcriptome sequencing long reads) is a wrapper algorithm of MECAT, to reduce the loss of isoform diversity while keeping MECAT's error correction performance. The experimental results show that LCAT not only can improve the quality of transcriptome sequencing long reads, but also keeps the diversity of isoforms.
 ## 2.Installation
 ### Install LCAT
 ```
