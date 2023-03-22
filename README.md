@@ -10,7 +10,6 @@ cd LCAT
 make
 cd ..
 export PATH=/home/tool/LCAT/Linux-amd64/bin:$PATH
-```
 After installation, all the executables are found in LCAT/ Linux-amd64/bin.
 ```
 ### Install HDF5
